@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 // Подключение к MongoDB
-const dbURI = process.env.MONGODB_URI || "mongodb://localhost:27017/mydatabase";
+const dbURI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/mydatabase";
 mongoose
   .connect(dbURI, {
     useNewUrlParser: true,
@@ -26,5 +26,5 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/profile", require("./routes/profile"));
 app.use("/api/carts", require("./routes/cart"));
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
